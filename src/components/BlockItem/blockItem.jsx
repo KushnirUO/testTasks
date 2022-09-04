@@ -1,13 +1,11 @@
 import {useDispatch} from 'react-redux';
 import {removeBlock} from '../../store/blockSlice';
-import './style.css'
 import {FaTree} from 'react-icons/fa';
 import {AiFillCloseCircle} from 'react-icons/ai';
-import {Thumb} from "../InputForm/thumb";
+import './style.css'
 
 const BlockItem = ({id, title, text, link, file}) => {
     const dispatch = useDispatch();
-    file='https://placekitten.com/150/150'
     return (
         <div className="post-item">
             <div className="item-content">
@@ -15,12 +13,9 @@ const BlockItem = ({id, title, text, link, file}) => {
                     <span onClick={() => dispatch(removeBlock({id}))}><AiFillCloseCircle size='50px'
                                                                                          color='#D1E8E2'/></span>
                 </div>
-                <a href={link}>
+                <a href={link} className='link2'>
                     <div className="item-icon group">
-                        <div style={{width: '150px', height: '150px'}}>
-                            <img src={file}/>
-                            {/*<Thumb file={file}/>*/}
-                        </div>
+                        <img className='item-icon-file' src={file}/>
                     </div>
                     <div className="item-body">
                         <h1>{title}</h1>

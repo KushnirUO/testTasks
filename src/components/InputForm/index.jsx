@@ -1,26 +1,47 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Formik} from 'formik';
 import {Thumb} from "./thumb";
 import {validationsForm} from "../ModalForm/ValidationForm";
+import {useDispatch} from "react-redux";
+import {addBlock} from "../../store/blockSlice";
 import './style.css'
 
-export const Form = (props) => {
-    const {handleAction} = props
+export const Form = () => {
+    const dispatch = useDispatch();
+    const handleAction = ({title, text, link, file}) => {
+        let document = "";
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            document = reader.result;
+            dispatch(addBlock({
+                title,
+                text,
+                link,
+                file: document
+            }));
+        };
+    }
     return (
         <div>
             <h1>Створення блоку</h1><br/>
             <Formik
                 initialValues={{
-                    title: '',
-                    text: '',
-                    link: '',
-                    file: '',
+                    title: 'Юлія',
+                    text: 'Кушнір',
+                    link: 'https://www.instagram.com/p/CZq0Ei5NRHk/?utm_source=ig_web_copy_link',
+                    file: null,
                 }}
                 validateOnBlur
                 onSubmit={(values, {resetForm}) => {
                     handleAction(values)
-                    resetForm({values: null})
-                    console.log(values.file)
+                    resetForm({
+                        title: 'Юлія',
+                            text: 'Кушнір',
+                            link: 'https://www.instagram.com/p/CZq0Ei5NRHk/?utm_source=ig_web_copy_link',
+                            file: null,
+                    })
+                    console.log(values.file.url)
                 }}
                 validationSchema={validationsForm}
             >
@@ -72,24 +93,24 @@ export const Form = (props) => {
                                 <p className={'error'}>{errors.link}</p>}</div>
                         </div>
                         <div className="group">
+                            <div className="file-label" htmlFor={`file`}>Зображення (до 1MB)</div>
                             <input
                                 type={`file`}
                                 id={`file`}
                                 name={`file`}
                                 accept=".jpg, .jpeg, .png"
-                                // value={values.file}
                                 onChange={(event) => {
                                     setFieldValue("file", event.currentTarget.files[0]);
                                 }}
                                 required
                             />
-                            <label htmlFor={`file`}></label>
                             <span className="bar"></span>
-                            <div style={{color: '#950740'}}>{touched.file && errors.file && <p className={'error'}>{errors.file}</p>}</div>
                             <div style={{width: '200px', height: '200px'}}>
-                                {/*<img src="" height="200" alt="Image preview..."/>*/}
                                 <Thumb file={values.file}/>
                             </div>
+                            <div style={{color: '#950740'}}>{touched.file && errors.file && <p className={'error'}>{errors.file}</p>}</div>
+
+
                         </div>
                         <button
                             className='btn5'

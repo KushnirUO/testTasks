@@ -12,7 +12,7 @@ const blockSlice = createSlice({
                 title: action.payload.title,
                 text: action.payload.text,
                 link: action.payload.link,
-                file: action.payload.file.file
+                file: action.payload.file
             });
         },
         removeBlock: (state, action) => {

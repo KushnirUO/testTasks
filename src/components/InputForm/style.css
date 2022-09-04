@@ -27,7 +27,14 @@ label {
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
 }
-
+.file-label{
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: -15px;
+    font-size: 14px;
+    color: #2C3531;
+}
 /* active state */
 input:focus ~ label, input:valid ~ label {
     top: -15px;
@@ -114,7 +121,9 @@ input[type=file]::file-selector-button {
     cursor: pointer;
     transition: background .2s ease-in-out;
 }
-
+input[type=file]::first-line{
+    color: #D1E8E2;
+}
 input[type=file]::file-selector-button:hover {
     background: #2C3531 ;
 }

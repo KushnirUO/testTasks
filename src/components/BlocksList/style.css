@@ -1,44 +1,79 @@
 .posts{
-    flex-direction: column;
-    justify-content: center;
-    min-width: 1140px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 .post-wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 .btnPagination{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .paginBtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 20px;
-    margin: 0 15px 15px 0;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 17px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #cccccc;
-    background-color: #116466;
-    cursor: pointer;
-    user-select: none;
-    appearance: none;
-    touch-action: manipulation;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 0 15px 15px 0;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #cccccc;
+  background-color: #116466;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
 }
 .paginBtn:disabled{
-    background: transparent;
-    border: none !important;
-    font-size:0;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+}
+
+.btnPage{
+  background-color: #116466;
+}
+.btnActive{
+  background-color: red;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.paginationBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: FontAwesome;
+  cursor: pointer;
+  font-size: 20px;
+  color: #F5E2CD;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  background-color: #1b7a7c;
+}
+.paginationBtn:hover{
+  background-color: rgba(31, 154, 154, 0.88);
+
+}
+.pgactive {
+  background-color: #2d4848;
+  position: relative;
 }

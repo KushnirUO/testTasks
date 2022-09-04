@@ -3,8 +3,7 @@ import Modal from "../modal";
 import {Form} from "../InputForm";
 import {AiOutlinePlusCircle} from 'react-icons/ai';
 
-export default function ModalFrom(props) {
-    const {handleAction} = props
+export default function ModalFrom() {
     const [modalActive, setModalActive] = useState();
     return (
         <div>
@@ -15,7 +14,7 @@ export default function ModalFrom(props) {
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
-                <Form handleAction={handleAction}/>
+                <Form/>
             </Modal>
         </div>
     )

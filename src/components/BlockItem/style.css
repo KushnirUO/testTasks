@@ -1,12 +1,6 @@
 * {
     margin: 0;
 }
-.post-wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-}
 .post-item {
     padding: 15px;
     cursor: pointer;
@@ -16,18 +10,22 @@
 }
 .item-content {
     background: #116466;
-    padding: 40px;
-    border-radius: 10px 10px 0px 10px;
+    padding: 10px 10px 40px 40px;
+    border-radius: 10px 10px 10px 10px;
 }
 .item-icon {
     margin-bottom: 20px;
     display: flex;
+    height: 150px;
+}
+.item-icon-file{
 }
 .item-close{
     display: flex;
     justify-content: flex-end;
     position: relative;
 }
+
 .item-icon:before {
     content: "";
     font-family: FontAwesome;
@@ -79,6 +77,11 @@
     font-weight: 600;
     color: #F5E2CD;
 }
+.link2 {
+    text-decoration: none;
+    overflow: hidden;
+
+}
 .link:before {
     content: "";
     position: absolute;
@@ -116,43 +119,4 @@
     .post-item {
         flex-basis: 30.333333333%;
     }
-}
-.posts{
-    flex-direction: column;
-    justify-content: center;
-    min-width: 1140px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-.btnPagination{
-    display: flex;
-    justify-content: center;
-}
-.paginBtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 20px;
-    margin: 0 15px 15px 0;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 17px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #2C3531 ;
-    color: #cccccc;
-    background-color: #116466;
-    cursor: pointer;
-    user-select: none;
-    appearance: none;
-    touch-action: manipulation;
-}
-.paginBtn:disabled{
-    background: transparent;
-    border: none !important;
-    font-size:0;
 }

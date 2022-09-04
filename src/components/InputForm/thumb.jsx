@@ -1,12 +1,14 @@
 import React from "react";
 
 export class Thumb extends React.Component {
+
     state = {
         loading: false,
         thumb: undefined,
     };
 
     componentWillReceiveProps(nextProps) {
+
         if (!nextProps.file) {
             return;
         }
@@ -24,9 +26,9 @@ export class Thumb extends React.Component {
     }
 
     render() {
+
         const {file} = this.props;
         const {loading, thumb} = this.state;
-
         if (!file) {
             return null;
         }
@@ -34,9 +36,7 @@ export class Thumb extends React.Component {
         if (loading) {
             return <p>loading...</p>;
         }
-
         return (<img src={thumb}
-                     alt={file.name}
                      height='100%'/>);
     }
 }
