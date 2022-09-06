@@ -43,12 +43,6 @@
   font-size:0;
 }
 
-.btnPage{
-  background-color: #116466;
-}
-.btnActive{
-  background-color: red;
-}
 
 .pagination {
   display: flex;

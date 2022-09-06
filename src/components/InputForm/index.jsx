@@ -27,20 +27,15 @@ export const Form = () => {
             <h1>Створення блоку</h1><br/>
             <Formik
                 initialValues={{
-                    title: 'Юлія',
-                    text: 'Кушнір',
-                    link: 'https://www.instagram.com/p/CZq0Ei5NRHk/?utm_source=ig_web_copy_link',
+                    title: '',
+                    text: '',
+                    link: '',
                     file: null,
                 }}
                 validateOnBlur
                 onSubmit={(values, {resetForm}) => {
                     handleAction(values)
-                    resetForm({
-                        title: 'Юлія',
-                            text: 'Кушнір',
-                            link: 'https://www.instagram.com/p/CZq0Ei5NRHk/?utm_source=ig_web_copy_link',
-                            file: null,
-                    })
+                    resetForm( '' )
                     console.log(values.file.url)
                 }}
                 validationSchema={validationsForm}
