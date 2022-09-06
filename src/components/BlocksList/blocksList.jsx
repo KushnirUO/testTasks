@@ -14,10 +14,11 @@ const BlocksList = () => {
         setNumPage(page)
     }
     let pages = [];
-    for (let i = 1; i <= countPage; i++) {
+    if(countPage>1){
+        for (let i = 1; i <= countPage; i++) {
         pages.push(i);
-    }
-    const btnDisable = (numPagePlus + numPage) === countPage ? true : false;
+    }}
+    const btnDisable = (numPagePlus + numPage === countPage)||(countAll===0) || (countPage===1) ? true : false;
     const firstElPage = (numPage - 1) * 9;
     let lastElPage = (numPage + numPagePlus) * 9;
     if (lastElPage > countAll) lastElPage = countAll;
@@ -31,7 +32,7 @@ const BlocksList = () => {
                         key={block.id}
                         {...block}
                     />
-                ))}
+                    ))}
             </div>
             <div className='btnPagination'>
                 <button className='paginBtn' onClick={() => setNumPagePlus(numPagePlus + 1)} disabled={btnDisable}>
@@ -40,11 +41,13 @@ const BlocksList = () => {
             </div>
             <div className="pagination">
                 {pages.map((page) => (
-                    <div
+                    <button
                         className={page === numPage ||
                         page === numPage + numPagePlus ||
                         (page < numPagePlus + numPage && page > numPage) ? "paginationBtn pgactive" : "paginationBtn"}
-                        onClick={() => handleClick(page)}>{page}</div>
+                        onClick={() => handleClick(page)}
+                        disabled={page === numPage || page === numPage + numPagePlus || (page < numPagePlus + numPage && page > numPage)  ? true : false}
+                    >{page}</button>
                 ))}
             </div>
         </div>

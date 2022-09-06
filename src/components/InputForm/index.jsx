@@ -36,7 +36,7 @@ export const Form = () => {
                 onSubmit={(values, {resetForm}) => {
                     handleAction(values)
                     resetForm( '' )
-                    console.log(values.file.url)
+                    document.getElementById("file").value = "";
                 }}
                 validationSchema={validationsForm}
             >
@@ -104,8 +104,6 @@ export const Form = () => {
                                 <Thumb file={values.file}/>
                             </div>
                             <div style={{color: '#950740'}}>{touched.file && errors.file && <p className={'error'}>{errors.file}</p>}</div>
-
-
                         </div>
                         <button
                             className='btn5'

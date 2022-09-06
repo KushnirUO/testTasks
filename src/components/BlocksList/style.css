@@ -40,6 +40,7 @@
 .paginBtn:disabled{
   background: transparent;
   border: none !important;
+  cursor: none;
   font-size:0;
 }
 
@@ -62,6 +63,10 @@
   height: 30px;
   margin: 5px;
   background-color: #1b7a7c;
+}
+.paginationBtn:disabled{
+  cursor: default;
+
 }
 .paginationBtn:hover{
   background-color: rgba(31, 154, 154, 0.88);
